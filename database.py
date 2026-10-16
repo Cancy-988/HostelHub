@@ -1,25 +1,12 @@
 from pymongo import MongoClient
 
-client = MongoClient(
-    "mongodb://localhost:27017/",
-    serverSelectionTimeoutMS=5000
-)
+client = MongoClient("mongodb://localhost:27017/")
 
-try:
-    client.admin.command("ping")
-    print("MongoDB connected successfully!")
+db = client["HostelHub"]
 
-    db = client["HostelHub"]
-    students= db["students"]
-    rooms= db["rooms"]
-    maintenance_staff= db["maintenance_staff"]
-    complaints=db["complaints"]
-    print("Database:", db.name)
-    print("Collections ready!")
+students = db["students"]
+rooms = db["rooms"]
+maintenance_staff = db["maintenance_staff"]
+complaints = db["complaints"]
 
-
-   
-
-except Exception as e:
-    print("Connection error:", e)
-
+print("MongoDB connected successfully!")
