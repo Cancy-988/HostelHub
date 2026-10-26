@@ -2,7 +2,21 @@ from database import students, rooms, maintenance_staff, complaints
 from datetime import datetime, timedelta
 import random
 
+from database import students, rooms, maintenance_staff, complaints
+from datetime import datetime, timedelta
+import random
 
+
+# ==========================================
+# CLEAR OLD DATA BEFORE SEEDING
+# ==========================================
+
+students.delete_many({})
+rooms.delete_many({})
+maintenance_staff.delete_many({})
+complaints.delete_many({})
+
+print("Old data cleared successfully!")
 
 
 #  STUDENT DATA
